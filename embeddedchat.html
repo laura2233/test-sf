@@ -1,1 +1,101 @@
-<h1>this is embedded chat </h1>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="topnav">
+  <a href="index.html">Home</a>
+  <a class="active" href="embeddedchat.html">Embedded Chat</a>
+  <a href="miaw.html">Miaw</a>
+</div>
+
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #005290;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #005290;
+	}
+</style>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = false; //Or false
+		embedded_svc.settings.language = 'en-US'; //For example, enter 'en' or 'en-US'
+
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		
+		embedded_svc.settings.prepopulatedPrechatFields = {
+            FirstName: "Laura",//sessionStorage.getItem("full_name"),
+            LastName: "Smith",
+            Email: "lsmith@softerware.com",
+            Client_ID__c: "someid" //sessionStorage.getItem("ezcareid")
+        };
+
+        embedded_svc.settings.extraPrechatFormDetails = [{
+            "label": "First Name",
+            "displayToAgent": true,
+            "transcriptFields": ["Chat_First_Name__c"]
+        }, {
+            "label": "Last Name",
+            "displayToAgent": true,
+            "transcriptFields": ["Chat_Last_Name__c"]
+        }, {
+            "label": "Email",
+            "displayToAgent": true,
+            "transcriptFields": ["Chat_Email__c"]
+        }, {
+            "label": "Client ID",
+            "displayToAgent": true,
+            "transcriptFields": ["Chat_Client_ID__c"]
+        }];
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://softerware--full.my.salesforce.com',
+			'https://full-softerware.cs193.force.com/ESWDPChat1655493128387vforcesite',
+			gslbBaseURL,
+			'00D7e00000GLPyM',
+			'Embedded_DP_Chat',
+			{
+				baseLiveAgentContentURL: 'https://c.la3-c1cs-ia5.salesforceliveagent.com/content',
+				deploymentId: '57231000000W7bd',
+				buttonId: '57331000000WBbV',
+				baseLiveAgentURL: 'https://d.la3-c1cs-ia5.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I7e0000008OTXEA2_18337d9c55e',
+				isOfflineSupportEnabled: false
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://softerware--full.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
+</body>
+</html>
