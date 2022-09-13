@@ -42,3 +42,7 @@ img {
   width: 50%;
   padding-top: 10px;
 }
+
+body {
+   background-image: "sf.png";
+}
