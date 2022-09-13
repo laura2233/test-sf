@@ -44,5 +44,9 @@ img {
 }
 
 body {
-   background-image: "sf.png";
+   background-image: url('sf.png');
+   background-repeat: no-repeat;
+   background-size: cover;
+
+
 }
