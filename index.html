@@ -10,43 +10,5 @@
   <a href="embeddedchat.html">Embedded Chat</a>
   <a href="miaw.html">Miaw</a>
 </div>
-	
-<div>
-<img src="http://picnicenglish.com/wp-content/uploads/2016/10/cat-typing-picnic.jpg">
-</div>
-
-<script type='text/javascript'>
-	var today = new Date();
-	  var day = today.getDay();
-	  var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
-	  console.log("Today is : " + daylist[day] + ".");
-	  if(daylist[day]!="" && daylist[day]!="Sunday"){
-	  var hour = today.getHours();
-
-	  console.log("Hour is : " + hour + ".");
-
-	  if(hour>="8" && (hour<="17")){
-		function initEmbeddedMessaging() {
-			try {
-				embeddedservice_bootstrap.settings.language = 'en'; // For example, enter 'en' or 'en-US'
-
-				embeddedservice_bootstrap.init(
-					'00Di0000000imEJ',
-					'DP_Chat',
-					'https://softerware.my.salesforce.com',
-					{
-						scrt2URL: 'https://softerware.my.salesforce-scrt.com'
-					}
-				);
-			} catch (err) {
-				console.error('Error loading Embedded Messaging: ', err);
-			}
-		};
-	  }
-  	}
-
-</script>
-<script type='text/javascript' src='https://service.force.com/embeddedservice/asyncclient/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
-
