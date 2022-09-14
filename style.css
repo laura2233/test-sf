@@ -53,5 +53,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-   background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
 }
