@@ -11,22 +11,22 @@
   <a href="miaw.html">Miaw</a>
 </div>
 
-    <script src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-    <script>
-        var initESW = function(gslbBaseURL) {
-            embedded_svc.settings.displayHelpButton = true; //Or false
-            embedded_svc.settings.language = 'en-US'; //For example, enter 'en' or 'en-US'
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = 'en-US'; //For example, enter 'en' or 'en-US'
 
-            embedded_svc.settings.defaultMinimizedText = 'Live Chat Support'; //(Defaults to Chat with an Expert)
+		embedded_svc.settings.defaultMinimizedText = 'Live Chat Support'; //(Defaults to Chat with an Expert)
 
-            embedded_svc.settings.prepopulatedPrechatFields = {
-                FirstName: 'Laura',
-                LastName: 'Smith',
-                Email: 'lsmith@softerware.com',
-                Client_ID__c: 'E123123',
+		embedded_svc.settings.prepopulatedPrechatFields = {  //sample variables in php below
+                FirstName: "<?= $user_name_first ?>",
+                LastName: "<?= $user_name_last ?>",
+                Email: "<?= $user_email ?>",
+                Client_ID__c: "<?= $org_softerware_client_id ?>",
             };
-
-            embedded_svc.settings.extraPrechatInfo = [
+			
+		embedded_svc.settings.extraPrechatInfo = [
                 {
                     "entityFieldMaps": [
                         {
@@ -90,40 +90,40 @@
                 "transcriptFields": ["Chat_Client_ID__c"]
             }, {
                 "label": "Origin",
-                "value": "RSA Chat",
+                "value": "GCEXP Chat",
                 "displayToAgent": true
             }];
 
-            embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-            embedded_svc.settings.entryFeature = 'LiveAgent';
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
 
-			embedded_svc.init(
-			'https://softerware--full.sandbox.my.salesforce.com',
-			'https://softerware--full.sandbox.my.site.com/dpcommunity',
+		embedded_svc.init(
+			'https://softerware.my.salesforce.com', //base SF url
+			'https://softerware.my.site.com/dpcommunity', //community endpoint
 			gslbBaseURL,
-			'00D6t000001Qvai',
-			'RSA_Chat',
+			'00Di0000000imEJ', //org id
+			'Givecloud_Express_Chat', //dev name
 			{
-				baseLiveAgentContentURL: 'https://c.la4-c1cs-ia4.salesforceliveagent.com/content',
-				deploymentId: '57231000000FCh8',
-				buttonId: '573i00000006vA9',
-				baseLiveAgentURL: 'https://d.la4-c1cs-ia4.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I6e0000010wL5EAI_1884edc031a',
+				baseLiveAgentContentURL: 'https://c.la4-c2-ia4.salesforceliveagent.com/content', //could change in the future.  SF makes the change.
+				deploymentId: '572i0000000W7VP', 
+				buttonId: '57331000000WBbf',
+				baseLiveAgentURL: 'https://d.la4-c2-ia4.salesforceliveagent.com/chat', //could change in the future.  SF makes the change.
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I6e0000008SfeEAE_18ed371122d',
 				isOfflineSupportEnabled: false
 			}
 		);
 	};
-       
-        if (!window.embedded_svc) {
-            var s = document.createElement('script');
-			s.setAttribute('src', 'https://softerware--full.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');  
-			s.onload = function() {
-                initESW(null);
-            };
-            document.body.appendChild(s);
-        } else {
-            initESW('https://service.force.com');
-        }
-    </script>
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://softerware.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
 </body>
 </html>
