@@ -9,41 +9,28 @@
   <a href="index.html">Home</a>
   <a href="embeddedchat.html">Embedded Chat</a>
   <a href="embeddedchat2.html">Embedded Chat 2</a>
-  <a href="embeddedchat3.html">Embedded Chat 2</a>	
+  <a href="embeddedchat3.html">Embedded Chat 3</a>	
   <a class="active" href="miaw.html">Miaw</a>
 </div>
 
 <script type='text/javascript'>
-	var today = new Date();
-	  var day = today.getDay();
-	  var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
-	  console.log("Today is : " + daylist[day] + ".");
-	  if(daylist[day]!="" && daylist[day]!="Sunday"){
-	  var hour = today.getHours();
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-	  console.log("Hour is : " + hour + ".");
-
-	  if(hour>="8" && (hour<="17")){
-		function initEmbeddedMessaging() {
-			try {
-				embeddedservice_bootstrap.settings.language = 'en'; // For example, enter 'en' or 'en-US'
-
-				embeddedservice_bootstrap.init(
-					'00Di0000000imEJ',
-					'DP_Chat',
-					'https://softerware.my.salesforce.com',
-					{
-						scrt2URL: 'https://softerware.my.salesforce-scrt.com'
-					}
-				);
-			} catch (err) {
-				console.error('Error loading Embedded Messaging: ', err);
-			}
-		};
-	  }
-  	}
-
+			embeddedservice_bootstrap.init(
+				'00D6t000001Qvai',
+				'DP_Chat',
+				'https://softerware--full.sandbox.my.site.com/ESWDPChat1655493128387',
+				{
+					scrt2URL: 'https://softerware--full.sandbox.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
 </script>
-<script type='text/javascript' src='https://service.force.com/embeddedservice/asyncclient/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<script type='text/javascript' src='https://softerware--full.sandbox.my.site.com/ESWDPChat1655493128387/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
