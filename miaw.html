@@ -8,29 +8,11 @@
 <div class="topnav">
   <a href="index.html">Home</a>
   <a href="embeddedchat.html">Embedded Chat</a>
-  <a href="embeddedchat2.html">Embedded Chat 2</a>
-  <a href="embeddedchat3.html">Embedded Chat 3</a>	
   <a class="active" href="miaw.html">Miaw</a>
+  <a href="miaw2.html">Miaw</a>
 </div>
 
-<script type='text/javascript'>
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-
-			embeddedservice_bootstrap.init(
-				'00D6t000001Qvai',
-				'DP_Chat',
-				'https://softerware--full.sandbox.my.site.com/ESWDPChat1655493128387',
-				{
-					scrt2URL: 'https://softerware--full.sandbox.my.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
-</script>
+<script type='text/javascript' src='miaw.js'></script>
 <script type='text/javascript' src='https://softerware--full.sandbox.my.site.com/ESWDPChat1655493128387/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
