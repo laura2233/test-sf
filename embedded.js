@@ -83,17 +83,17 @@
 		embedded_svc.settings.entryFeature = 'LiveAgent';
 
 		embedded_svc.init(
-			'https://softerware.my.salesforce.com', //base SF url
-			'https://softerware.my.site.com/dpcommunity', //community endpoint
+			'https://softerware--full.sandbox.my.salesforce.com',
+			'https://softerware--full.sandbox.my.site.com/dpcommunity',
 			gslbBaseURL,
-			'00Di0000000imEJ', //org id
-			'Givecloud_Express_Chat', //dev name
+			'00D6t000001Qvai',
+			'RSA_Chat',
 			{
-				baseLiveAgentContentURL: 'https://c.la4-c2-ia4.salesforceliveagent.com/content', //could change in the future.  SF makes the change.
-				deploymentId: '572i0000000W7VP', 
-				buttonId: '57331000000WBbf',
-				baseLiveAgentURL: 'https://d.la4-c2-ia4.salesforceliveagent.com/chat', //could change in the future.  SF makes the change.
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I6e0000008SfeEAE_18ed371122d',
+				baseLiveAgentContentURL: 'https://c.la4-c1cs-ia4.salesforceliveagent.com/content',
+				deploymentId: '57231000000FCh8',
+				buttonId: '573i00000006vA9',
+				baseLiveAgentURL: 'https://d.la4-c1cs-ia4.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I6e0000010wL5EAI_1884edc031a',
 				isOfflineSupportEnabled: false
 			}
 		);
@@ -101,7 +101,7 @@
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'https://softerware.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'https://softerware--full.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
