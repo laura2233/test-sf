@@ -20,3 +20,17 @@ window.addEventListener("onEmbeddedMessagingReady", () => {
 
   // The JavaScrip API is ready for calls.
 });
+
+window.addEventListener("onEmbeddedMessagingIdentityTokenExpired", () => {
+  console.log("Received the onEmbeddedMessagingIdentityTokenExpired event…");
+
+  // Refresh token and then send the new token to Salesforce.
+  embeddedservice_bootstrap.userVerificationAPI.setIdentityToken({
+    identityTokenType: "JWT",
+    identityToken: refreshed_jwt,
+  });
+
+  // Or, instead of refreshing the token, call
+  // embeddedservice_bootstrap.userVerificationAPI.clearSession()
+  // to clear all session data.
+});
