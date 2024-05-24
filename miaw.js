@@ -14,3 +14,9 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
+
+window.addEventListener("onEmbeddedMessagingReady", () => {
+  console.log("Received the onEmbeddedMessagingReady event…");
+
+  // The JavaScrip API is ready for calls.
+});
