@@ -31,7 +31,7 @@ window.addEventListener("onEmbeddedMessagingReady", e => {
       "value": "roggie@email.com",
       "isEditableByEndUser": false
     },
-    "Client_Id": {
+    "Client Id": {
       "value": "E9999",
       "isEditableByEndUser": false
     },  
