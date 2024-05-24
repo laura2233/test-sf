@@ -16,6 +16,7 @@
 	};
 
 window.addEventListener("onEmbeddedMessagingReady", e => {
+  embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"Client Id" : "E9999")}
   embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
     // List the pre-chat field names with the value and whether
     // it's editable in the pre-chat form.
@@ -30,11 +31,6 @@ window.addEventListener("onEmbeddedMessagingReady", e => {
     "_email": {
       "value": "roggie@email.com",
       "isEditableByEndUser": false
-    },
-    "Client Id": {
-      "value": "E9999",
-      "isEditableByEndUser": false
     },  
-	  
   });
 });
