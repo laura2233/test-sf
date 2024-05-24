@@ -1,8 +1,8 @@
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-
-			embeddedservice_bootstrap.init(
+			embeddedservice_bootstrap.settings.chatButtonPosition = "30px,20px";
+   			embeddedservice_bootstrap.init(
 				'00D6t000001Qvai',
 				'DP_Chat',
 				'https://softerware--full.sandbox.my.site.com/ESWDPChat1655493128387',
