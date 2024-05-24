@@ -15,22 +15,26 @@
 		}
 	};
 
-window.addEventListener("onEmbeddedMessagingReady", () => {
-  console.log("Received the onEmbeddedMessagingReady event…");
-
-  // The JavaScrip API is ready for calls.
-});
-
-window.addEventListener("onEmbeddedMessagingIdentityTokenExpired", () => {
-  console.log("Received the onEmbeddedMessagingIdentityTokenExpired event…");
-
-  // Refresh token and then send the new token to Salesforce.
-  embeddedservice_bootstrap.userVerificationAPI.setIdentityToken({
-    identityTokenType: "JWT",
-    identityToken: refreshed_jwt,
+window.addEventListener("onEmbeddedMessagingReady", e => {
+  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+    // List the pre-chat field names with the value and whether
+    // it's editable in the pre-chat form.
+    "_firstName": {
+      "value": "Roger",
+      "isEditableByEndUser": true
+    },
+    "_lastName": {
+      "value": "Sandstone",
+      "isEditableByEndUser": true
+    },
+    "_email": {
+      "value": "roggie@email.com",
+      "isEditableByEndUser": false
+    },
+    "Client_Id": {
+      "value": "E9999",
+      "isEditableByEndUser": false
+    },  
+	  
   });
-
-  // Or, instead of refreshing the token, call
-  // embeddedservice_bootstrap.userVerificationAPI.clearSession()
-  // to clear all session data.
 });
