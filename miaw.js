@@ -3,7 +3,7 @@
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 			embeddedservice_bootstrap.settings.chatButtonPosition = "150px,150px";
    			embeddedservice_bootstrap.init(
-				'00D6t000001Qvai',
+				'00DU8000004mTYT',
 				'DP_Chat',
 				'https://softerware--full.sandbox.my.site.com/ESWDPChat1655493128387',
 				{
