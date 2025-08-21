@@ -1,4 +1,4 @@
-	function initEmbeddedMessaging() {
+function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 			embeddedservice_bootstrap.settings.chatButtonPosition = "150px,150px";
